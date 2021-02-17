@@ -1,4 +1,3 @@
 ﻿  contact.c
-  test.c
-  正在生成代码...
+D:\clangBybilibili\code\contact\contact\contact.c(119,1): warning C4133: “初始化”: 从“PoInfo *”到“PeoInfo *”的类型不兼容
   contact.vcxproj -> D:\clangBybilibili\code\contact\x64\Debug\contact.exe

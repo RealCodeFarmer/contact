@@ -112,3 +112,36 @@ void modifyContact(struct Contact* c) {
 		scanf("%s", c->peoInfos[ret].addr);
 	}
 }
+
+void sortContact(struct Contact* c) {
+	int i = 0;
+	//struct PeoInfo* peos = (struct PoInfo*)malloc(c->size * sizeof(struct PeoInfo));
+	struct PeoInfo* peos = (struct PoInfo*)malloc(c->size * sizeof(struct PeoInfo));
+	//打印排序通讯录
+	if (0 == c->size) {
+		printf("通讯录为空\n");
+	} else {
+		peos = (struct PeoInfo*)memcpy(peos, c->peoInfos, c->size * sizeof(struct PeoInfo));
+		//按照名字排序
+		for (i = 0; i < c->size - 1; i++) {
+			int j = 0;
+			for (j = 0; j < c->size - 1 - i; j++) {
+				if (strcmp(peos[j].name, peos[j + 1].name) > 0) {
+					struct PeoInfo tmp = peos[j + 1];
+					peos[j + 1] = peos[j];
+					peos[j] = tmp;
+				}
+			}
+		}
+		printf("%-5s\t%-3s\t%-3s\t%-12s\t%-30s\n",
+			"姓名", "年龄", "性别", "手机号", "地址");
+		for (i = 0; i < c->size; i++) {
+			printf("%-5s\t%-3d\t%-3s\t%-12s\t%-30s\n",
+				peos[i].name, peos[i].age,
+				peos[i].sex, peos[i].tele,
+				peos[i].addr);
+		}
+	}
+	free(peos);
+	peos = NULL;
+}

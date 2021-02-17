@@ -13,6 +13,7 @@ void menu() {
 
 int main(void) {
 	int input = 0;
+	//可以写成动态内存版本
 	struct Contact c;
 	//初始化
 	initContact(&c);
@@ -37,10 +38,12 @@ int main(void) {
 				showContact(&c);
 				break;
 			case SORT:
+				sortContact(&c);
 				break;
 			case EXIT:
 				break;
 			default:
+				printf("选择错误,请重新输入!\n");
 				break;
 		}
 	} while (input);

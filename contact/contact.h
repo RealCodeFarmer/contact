@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX 1000
 #define MAX_NAME 20
@@ -35,8 +36,15 @@ struct Contact {
 
 //初始化
 void initContact(struct Contact* c);
+//添加
 void addContact(struct Contact* c);
+//展示
 void showContact(struct Contact* c);
+//删除
 void delContact(struct Contact* c);
+//搜索
 void searchContact(struct Contact* c);
+//更改
 void modifyContact(struct Contact* c);
+//排序
+void sortContact(struct Contact* c);
