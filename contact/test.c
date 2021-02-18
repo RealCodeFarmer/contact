@@ -7,7 +7,7 @@ void menu() {
 	printf("*****1. add                       2. del      *******\n");
 	printf("*****3. search                    4. modify   *******\n");
 	printf("*****5. show                      6. sort     *******\n");
-	printf("*****0. exit                                  *******\n");
+	printf("*****7.save                       0. exit     *******\n");
 	printf("*****************************************************\n");
 }
 
@@ -40,7 +40,13 @@ int main(void) {
 			case SORT:
 				sortContact(&c);
 				break;
+			case SAVE:
+				saveContact(&c);
+				break;
 			case EXIT:
+				//退出的时候也保存一下
+				saveContact(&c);
+				printf("退出通讯录!\n");
 				break;
 			default:
 				printf("选择错误,请重新输入!\n");

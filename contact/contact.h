@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdlib.h>
 
 #define MAX 1000
 #define MAX_NAME 20
@@ -18,7 +19,8 @@ enum Option {
 	SEARCH,
 	MODIFY,
 	SHOW,
-	SORT
+	SORT,
+	SAVE
 };
 
 struct PeoInfo {
@@ -48,3 +50,5 @@ void searchContact(struct Contact* c);
 void modifyContact(struct Contact* c);
 //≈≈–Ú
 void sortContact(struct Contact* c);
+//±£¥Ê
+void saveContact(struct Contact* c);

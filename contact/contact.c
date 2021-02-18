@@ -4,8 +4,23 @@
 
 void initContact(struct Contact* c) {
 	int i = 0;
+	struct PeoInfo tmp;
 	memset(c, 0, sizeof(c->peoInfos));
 	c->size = 0;
+
+	//打开文件
+	FILE* fp = fopen("./contact.txt", "rb");
+	if (fp == NULL) {
+		return;
+	}
+	//读入通讯录文件
+	while (fread(&tmp, sizeof(struct PeoInfo), 1, fp) >= 1) {
+		c->peoInfos[c->size] = tmp;
+		c->size++;
+	}
+	//关闭文件
+	fclose(fp);
+	fp = NULL;
 }
 
 void addContact(struct Contact* c) {
@@ -144,4 +159,16 @@ void sortContact(struct Contact* c) {
 	}
 	free(peos);
 	peos = NULL;
+}
+
+void saveContact(struct Contact* c) {
+	FILE* fp = fopen("./contact.txt", "wb");
+	if (fp == NULL) {
+		return;
+	}
+	//写进文件
+	fwrite(c->peoInfos, sizeof(struct PeoInfo), c->size, fp);
+	//关闭文件
+	fclose(fp);
+	fp = NULL;
 }
